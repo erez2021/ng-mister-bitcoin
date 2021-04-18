@@ -1,0 +1,22 @@
+.user-card {
+    min-height: 200px;
+    width: 250px;
+    border: 1px solid lightgray;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: center;
+    color: rgb(102, 83, 83);
+    box-shadow: 1px 1px 3px 3px #958d8d57;
+  }
+
+  .icon {
+      height: 30px;
+      width: 30px;
+      margin-right: 5px;
+  }
+
+  .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }

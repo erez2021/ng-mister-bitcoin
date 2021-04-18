@@ -1,0 +1,4 @@
+<form class="pet-filter">
+    <label for="name">Shearch:</label>
+    <input type="text" id="name" name="term" [(ngModel)]="filterBy" (ngModelChange)="onSetFilter($event)">
+  </form>
