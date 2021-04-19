@@ -9,9 +9,15 @@ import { Contact}  from '../../models/contact'
 export class ContactPreviewComponent implements OnInit {
 
   @Input() contact: Contact
+
+  isModalOpen: boolean = false
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  showDetails() {
+    this.isModalOpen = !this.isModalOpen
   }
 
 }

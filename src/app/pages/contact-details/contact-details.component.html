@@ -1,0 +1,11 @@
+<div class="details-modal" >
+    <h2>{{contact.name}}</h2>
+    <h3>{{contact.email}}</h3>
+    <h3>{{contact.phone}}</h3>
+    <div>
+    <img [src]="'https://i.pravatar.cc/150?u=' + contact._id" alt="contact" class="contact-img">
+</div>
+    <button class="back-btn" (click)="goBack()">BACK</button>
+    <button class="remove-btn" (click)="removeContact(contact._id)">🗑️</button>
+    <button class="edit-btn" (click)="editContact(contact._id)">✏️</button>
+</div>

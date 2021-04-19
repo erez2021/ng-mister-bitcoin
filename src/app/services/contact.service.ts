@@ -1,8 +1,10 @@
 
 
 import { Injectable } from '@angular/core';
-import { Observable, BehaviorSubject } from 'rxjs';
-// import { of } from 'rxjs/observable/of'
+import { Observable, BehaviorSubject, throwError } from 'rxjs';
+// import { throw } from 'rxjs/add/observable/throw'
+// import 'rxjs/add/observable/throw';
+import { of } from 'rxjs'
 import { Contact } from '../models/contact'
 
 const CONTACTS = [
@@ -133,7 +135,9 @@ export class ContactService {
 
   private _contacts$ = new BehaviorSubject<Contact[]>([])
   public contacts$ = this._contacts$.asObservable()
-
+public filterBy= {
+  term: ''
+}
   constructor() {
   }
 
@@ -147,13 +151,14 @@ export class ContactService {
   }
 
 
-  // public getContactById(id: string): Observable<Contact> {
-  //   //mock the server work
-  //   const contact = this._contactsDb.find(contact => contact._id === id)
+  public getContactById(id: string): Observable<Contact> {
+    //mock the server work
+    const contact = this._contactsDb.find(contact => contact._id === id)
 
-  //   //return an observable
-  //   return contact ? of(contact) : Observable.throw(`Contact id ${id} not found!`)
-  // }
+    //return an observable
+    return contact ? of(contact) : throwError(`Contact id ${id} not found!`)
+    // return contact ? of(contact) : Observable.throw(`Contact id ${id} not found!`)
+  }
 
   public deleteContact(id: string) {
     //mock the server work
@@ -163,24 +168,33 @@ export class ContactService {
     this._contacts$.next(this._contactsDb)
   }
 
-  // public saveContact(contact: Contact) {
-  //   return contact._id ? this._updateContact(contact) : this._addContact(contact)
-  // }
+  public saveContact(contact: Contact) {
+    return contact._id ? this.updateContact(contact) : this._addContact(contact)
+  }
 
-  private _updateContact(contact: Contact) {
+  updateContact(contact: Contact) {
     //mock the server work
     this._contactsDb = this._contactsDb.map(c => contact._id === c._id ? contact : c)
     // change the observable data in the service - let all the subscribers know
     this._contacts$.next(this._sort(this._contactsDb))
   }
 
-  // private _addContact(contact: Contact) {
-  //   //mock the server work
-  //   const newContact = new Contact(contact.name, contact.email, contact.phone);
-  //   newContact.setId();
-  //   this._contactsDb.push(newContact)
-  //   this._contacts$.next(this._sort(this._contactsDb))
-  // }
+  private _addContact(contact: Contact) {
+    //mock the server work
+    const newContact = {
+    _id :  this._makeId(),
+      name: contact.name,
+      email: contact.email,
+      phone: contact.phone
+    }
+
+    this._contactsDb.push(newContact)
+    this._contacts$.next(this._sort(this._contactsDb))
+  }
+
+  public getEmptyContact() {
+    return {_id:'',name:'', phone:'', email:''}
+  }
 
   private _sort(contacts: Contact[]): Contact[] {
     return contacts.sort((a, b) => {
@@ -202,5 +216,12 @@ export class ContactService {
         contact.phone.toLocaleLowerCase().includes(term) ||
         contact.email.toLocaleLowerCase().includes(term)
     })
+  }
+  
+  private _makeId() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+      var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
   }
 }

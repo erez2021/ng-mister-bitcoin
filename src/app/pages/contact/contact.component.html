@@ -1,1 +1,4 @@
+<h2>Contacts</h2>
+<button (click)="addContact()">ADD</button>
+<app-filter (onSetFilter)="onSetFilter($event)"></app-filter>
 <app-contact-list [contacts]="contacts$|async"></app-contact-list>

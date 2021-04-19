@@ -12,6 +12,10 @@ import { ChartComponent } from './cmps/chart/chart.component';
 import { ChartModule } from 'angular2-chartjs';
 import { FilterComponent } from './cmps/filter/filter.component';
 import { FormsModule } from '@angular/forms';
+import { ContactDetailsComponent } from './pages/contact-details/contact-details.component';
+import { HeaderComponent } from './cmps/header/header.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +26,11 @@ import { FormsModule } from '@angular/forms';
     ContactPreviewComponent,
     ChartComponent,
     FilterComponent,
+    ContactDetailsComponent,
+    HeaderComponent,
+    HomePageComponent,
+    EditContactComponent,
+    
   ],
   imports: [
     BrowserModule,

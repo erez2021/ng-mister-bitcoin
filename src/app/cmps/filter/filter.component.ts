@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Output,EventEmitter} from '@angular/core';
 
 
 @Component({
@@ -8,17 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilterComponent implements OnInit {
 
-  public filterBy: {
+  filterBy= {
     term: ''
   }
   constructor() { }
 
+  @Output() onSetFilter = new EventEmitter<any>()
+
   ngOnInit(): void {
   }
 
-  onSetFilter(event){
-    console.log(event.target.value);
-    
+  SetFilter() {
+    this.onSetFilter.emit(this.filterBy)
   }
 
 }
