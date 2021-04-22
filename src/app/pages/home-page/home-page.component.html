@@ -1,3 +1,13 @@
+
+<div *ngIf="!user" class="welcome">
+<h2>Welcome To Mr.Bitcoin!</h2>
+<h3>With our app you can follow Bitcoin rate and charts,</h3>
+<h3>and even play with other contacts and send coins.</h3>
+<h3>Click <a routerLink="">here</a>  to sign-up for free!</h3>
+</div>
 <app-user [user]="user" [rate]="rate"></app-user>
-<h2>Charts</h2>
-<chart [type]="type" [data]="data" [options]="options" class="chart"></chart>
+<div class="chart-container">
+<h3 class="charts-title">Latest Bitcoin Charts</h3>
+<chart [type]="type" [data]="data" [options]="options" class="chart" ></chart>
+<chart [type]="type1" [data]="data1" [options]="options1" class="chart"></chart>
+</div>

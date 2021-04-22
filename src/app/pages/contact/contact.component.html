@@ -1,4 +1,10 @@
-<h2>Contacts</h2>
-<button (click)="addContact()">ADD</button>
-<app-filter (onSetFilter)="onSetFilter($event)"></app-filter>
+<div class="app-contacts">
+<h2>Our community</h2>
+
+    <img src="../../../assets/icons/plus.png" (click)="addContact()" class="add-btn">
+
+<div class="contact-filter">
+<app-filter (onSetFilter)="onSetFilter($event)" ></app-filter>
+</div>
 <app-contact-list [contacts]="contacts$|async"></app-contact-list>
+</div>

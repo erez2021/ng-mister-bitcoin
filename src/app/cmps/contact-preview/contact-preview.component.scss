@@ -9,9 +9,17 @@
     text-align: center;
     color: rgb(102, 83, 83);
     box-shadow: 1px 1px 3px 3px #958d8d57;
+    &:hover{
+        opacity: 0.9;
+    }
   }
 
   .contact-img {
       padding-bottom: 20px;
   }
 
+@media screen and (max-width: 540px) {
+    .contact-card {
+width: 150px
+}
+}

@@ -1,6 +1,4 @@
-.contact-edit{
-    display: flex;
-    flex-direction: column;
+.signup-modal {
     min-height: 450px;
     width: 450px;
     border: 1px solid lightgray;
@@ -9,39 +7,31 @@
     text-align: center;
     
     box-shadow: 1px 1px 3px 3px #958d8d57;
-    input{
-        padding: 5px;
-        width: 250px;
-        margin: 0 auto;
-       
-    }
-   :first-child{
-        margin-top: 50px;
-    }
 }
 
-.save-btn{
-   
+.sign-up{
+    margin-top:100px
+}
+
+input{
+    padding: 5px;
+    margin-right: 25px;
+}
+
+.signup-btn{
     background-color: rgb(134, 206, 63);
     color: darkcyan;
-    width: 70px;
+    width: 120px;
     height: 40px;
     border-radius: 20px;
     font-weight: bold;
     margin: auto;
-}
-
-.loading{
-    width: 300px;
-    margin: 0 auto;
-}
-
-img{
-    width: 300px;
+    margin-top: 30px;
+    
 }
 
 @media screen and (max-width: 540px) {
-    .contact-edit {
+    .signup-modal {
 
         width: 350px;
 }

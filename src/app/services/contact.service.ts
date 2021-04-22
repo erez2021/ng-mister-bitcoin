@@ -131,6 +131,7 @@ const CONTACTS = [
 export class ContactService {
 
   //mock the server
+  move: object
   private _contactsDb: Contact[] = CONTACTS;
 
   private _contacts$ = new BehaviorSubject<Contact[]>([])
@@ -188,12 +189,22 @@ public filterBy= {
       phone: contact.phone
     }
 
-    this._contactsDb.push(newContact)
+    this._contactsDb.unshift(newContact)
     this._contacts$.next(this._sort(this._contactsDb))
   }
 
   public getEmptyContact() {
     return {_id:'',name:'', phone:'', email:''}
+  }
+
+  public getUserMove(contact: Contact, amount: number) {
+     this.move = {
+      toId: contact._id,
+      to: contact.name,
+      at: new Date().toLocaleDateString(),
+      amount: amount
+    }
+    return this.move
   }
 
   private _sort(contacts: Contact[]): Contact[] {
@@ -213,8 +224,8 @@ public filterBy= {
     term = term.toLocaleLowerCase()
     return contacts.filter(contact => {
       return contact.name.toLocaleLowerCase().includes(term) ||
-        contact.phone.toLocaleLowerCase().includes(term) ||
-        contact.email.toLocaleLowerCase().includes(term)
+        contact.phone.toLocaleLowerCase().includes(term) 
+        // contact.email.toLocaleLowerCase().includes(term)
     })
   }
   

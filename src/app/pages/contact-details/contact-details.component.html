@@ -5,6 +5,7 @@
     <div>
     <img [src]="'https://i.pravatar.cc/150?u=' + contact._id" alt="contact" class="contact-img">
 </div>
+<app-transfer-fund></app-transfer-fund>
     <button class="back-btn" (click)="goBack()">BACK</button>
     <button class="remove-btn" (click)="removeContact(contact._id)">🗑️</button>
     <button class="edit-btn" (click)="editContact(contact._id)">✏️</button>

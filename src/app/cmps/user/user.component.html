@@ -8,4 +8,13 @@
 <img src="../../../assets/icons/bitcoin.png" class="icon">
 <h4>Bitcion Rate: ${{bitcoinRate}}</h4>
 </div>
+<div class="user-moves">
+    <p>Click  <a routerLink="contact">here</a> to community</p>
+    <h3 class="transactions">Last Transactions</h3>
+    <ul *ngFor="let move of user.moves; index as idx">
+        <li>
+{{move.at}}   ${{move.amount}}   to:{{move.to}}
+        </li>
+    </ul>
+</div>
 </div>

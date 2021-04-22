@@ -1,0 +1,12 @@
+<div *ngIf="!isLoading" class="app-transfer">
+<p>Transfer coins to {{contact.name}}:</p>
+<!-- <p>Amount:</p> -->
+<form (submit)="tansferCoins()">
+<input type="number" name="coins" [(ngModel)]="user.coins">
+<button>Transfer</button>
+</form>
+<div *ngIf="msg" class="show-msg">You don't have enough coins</div>
+</div>
+<div *ngIf="isLoading" class="loading">
+    <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" >
+  </div>

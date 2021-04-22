@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user.service'
 import { BitcoinService } from '../../services/bitcoin.service';
-import {User} from '../../models/user'
+import { User } from '../../models/user'
 
 @Component({
   selector: 'app-home-page',
@@ -16,7 +16,8 @@ export class HomePageComponent implements OnInit {
     datasets: [
       {
         label: "Bitcoin Market Price",
-        data: []
+        data: [],
+        backgroundColor: []
       }
     ]
   };
@@ -25,28 +26,52 @@ export class HomePageComponent implements OnInit {
     maintainAspectRatio: false
   };
 
+  type1 = 'line';
+  data1 = {
+    labels: [],
+    datasets: [
+      {
+        label: "Bitcoin Last Transactions",
+        data: [],
+        backgroundColor: []
 
+      }
+    ]
+  };
+  options1 = {
+    responsive: true,
+    maintainAspectRatio: false
+  };
+
+ 
   public user: User
   public rate
- 
- 
 
-  constructor(private userService: UserService,private bitcoinService: BitcoinService) {}
+
+
+  constructor(private userService: UserService, private bitcoinService: BitcoinService) { }
 
   ngOnInit(): void {
-    this.user = this.userService.getUser()
+    // this.user = this.userService.getUser()
+    this.user = JSON.parse(localStorage.getItem('user'))
     this.rate = this.bitcoinService.getRate();
-  this.getMarketPrice()
+    this.getTransactions()
+    this.getMarketPrice()
   }
-
+ 
 
   getMarketPrice() {
-    var marketPrice = this.bitcoinService.getMarketPrice() 
-    const chartXvalues = marketPrice.values.map(value => value.x)
+    var marketPrice = this.bitcoinService.getMarketPrice()
+    const chartXvalues = marketPrice.values.map(value => new Date(value.x).toLocaleTimeString())
     const chartYValues = marketPrice.values.map(value => value.y)
-    console.log(chartYValues, chartXvalues);
     this.data.labels = chartXvalues
-    this.data.datasets[0].data = chartYValues 
+    this.data.datasets[0].data = chartYValues
   }
-
+  getTransactions() {
+    var transaction = this.bitcoinService.getConfirmedTransactions()
+    const chartXvalues = transaction.values.map(value => new Date(value.x).toLocaleTimeString())
+    const chartYValues = transaction.values.map(value => value.y)
+    this.data1.labels = chartXvalues
+    this.data1.datasets[0].data = chartYValues
+  }
 }

@@ -1,9 +1,14 @@
 <form (submit)="onSaveContact()" class="contact-edit">
     <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="contact.name" [(ngModel)]="contact.name">
+    <input type="text" name="name" id="name" [placeholder]="contact.name" [(ngModel)]="contact.name">
     <label for="phone">Phone</label>
-    <input type="text" name="phone" id="phone"  placeholder="contact.phone" [(ngModel)]="contact.phone">
+    <input type="text" name="phone" id="phone"  [placeholder]="contact.phone" [(ngModel)]="contact.phone">
     <label for="email">E-mail</label>
-    <input type="text" name="email" id="email"  placeholder="contact.email" [(ngModel)]="contact.email">
-    <button>Save</button>
+    <input type="text" name="email" id="email"  [placeholder]="contact.email" [(ngModel)]="contact.email">
+    <button class="save-btn">Save</button>
+  
+    
   </form>
+  <div *ngIf="isLoading" class="loading">
+  <img src="https://wpamelia.com/wp-content/uploads/2018/11/ezgif-2-6d0b072c3d3f.gif" >
+</div>

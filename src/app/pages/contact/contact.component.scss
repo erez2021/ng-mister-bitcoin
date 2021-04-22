@@ -1,0 +1,26 @@
+.contact-filter{
+    margin: 20px;
+
+
+}
+
+.app-contacts{
+    text-align: center;
+}
+
+.add-btn{
+  position: absolute;
+    top: 157px;
+    right: 275px;
+    cursor: pointer;
+    &:hover{
+        opacity: 0.9;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .add-btn{
+        right: 40px
+    }
+    
+}

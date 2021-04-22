@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {User} from '../models/user'
+import {Contact} from '../models/contact'
 
 @Injectable({
   providedIn: 'root'
@@ -20,5 +21,18 @@ export class UserService {
       return this.user
     }
 
-   
+   getEmptyUser() {
+     const newUser: User = {
+       name:'',
+       coins: 100,
+       moves: []
+     }
+     return newUser
+   }
+
+   saveToStorage(user: User) {
+    localStorage.setItem('user', JSON.stringify(user))
+   }
+
+
 }

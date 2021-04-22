@@ -10,7 +10,7 @@ import { Observable, Subscription } from 'rxjs';
   styleUrls: ['./edit-contact.component.scss']
 })
 export class EditContactComponent implements OnInit {
-
+  isLoading: boolean = false
   contact: Contact
   
   constructor(private route: ActivatedRoute, private router: Router, private contactService: ContactService) { }
@@ -26,6 +26,9 @@ export class EditContactComponent implements OnInit {
   }
   onSaveContact() {
     this.contactService.saveContact(this.contact)
-    this.router.navigateByUrl('/contact')
+    this.isLoading=true
+    setTimeout(() => {
+      this.router.navigateByUrl('/contact')
+    },1500)
   }
 }

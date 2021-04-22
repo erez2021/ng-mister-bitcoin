@@ -16,6 +16,9 @@ import { ContactDetailsComponent } from './pages/contact-details/contact-details
 import { HeaderComponent } from './cmps/header/header.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { EditContactComponent } from './pages/edit-contact/edit-contact.component';
+import { TransactionChartComponent } from './cmps/transaction-chart/transaction-chart.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { TransferFundComponent } from './cmps/transfer-fund/transfer-fund.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { EditContactComponent } from './pages/edit-contact/edit-contact.componen
     HeaderComponent,
     HomePageComponent,
     EditContactComponent,
+    TransactionChartComponent,
+    SignupComponent,
+    TransferFundComponent,
     
   ],
   imports: [
