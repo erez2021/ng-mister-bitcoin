@@ -29,6 +29,6 @@ export class EditContactComponent implements OnInit {
     this.isLoading=true
     setTimeout(() => {
       this.router.navigateByUrl('/contact')
-    },1500)
+    },1000)
   }
 }

@@ -17,6 +17,8 @@ export class ContactDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.subscription = this.route.data.subscribe(data => {
+      console.log(this.route.data);
+
       this.contact = data.contact
   
     })

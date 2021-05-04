@@ -7,9 +7,14 @@
     color: rgb(102, 83, 83);
     box-shadow: 1px 1px 3px 3px #958d8d57;
     margin-bottom: 50px;
+    background-color: ghostwhite;
     &:hover{
-        background-color: ghostwhite;
+        opacity: 0.9;
     }
+  }
+
+  li{
+      background-color: rgb(191, 220, 248);
   }
 
   .icon {

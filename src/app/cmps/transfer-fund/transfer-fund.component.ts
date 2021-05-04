@@ -47,6 +47,6 @@ this.userService.saveToStorage(this.user)
 this.isLoading=true
 setTimeout(() => {
   this.router.navigateByUrl('/')
-},1500)
+},1000)
   }
 }

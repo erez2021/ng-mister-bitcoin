@@ -1,12 +1,21 @@
 .loading{
-    width: 250px;
+    width: 150px;
     margin: 0 auto;
-    margin-top: 100px;
-    margin-left: 100px;
+    margin-top: 70px;
+    margin-left: 150px;
     position: fixed;
     z-index: 1;
 }
 
 img{
-    width: 250px;
+    width: 150px;
+}
+
+input {
+    padding: 5px;
+}
+
+button {
+    padding: 5px;
+    background-color: lightblue;
 }
